@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState, useEffect} from 'react'
 import MoodList from './MoodList'
+import MoodForm from './MoodForm'
 
 const MoodContainer = () => {
     const [moods, setMoods] = useState([])
@@ -11,10 +12,15 @@ const MoodContainer = () => {
         .then(data => setMoods(data))
     }, [])
 
+    const handleAddMood = (newMood) => {
+      const updatedMoods = [...moods, newMood]
+      setMoods(updatedMoods)
+    }
+
     return (
-      <div>       
-        <MoodList moods={moods} />
-      
+      <div>
+        <MoodForm onAddMood={handleAddMood} />       
+        <MoodList moods={moods} />      
       </div>
     );
   }
