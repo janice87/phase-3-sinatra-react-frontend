@@ -7,7 +7,7 @@ const MoodDetails = ({moodObj}) => {
         <p>{date}</p> 
         <p>Today I was feeling: {mood}</p>
         <p>My win for the day: {win}</p> 
-        <p>The challene of the day: {challenge}</p>             
+        <p>The challenge of the day: {challenge}</p>             
       
       </div>
     );
