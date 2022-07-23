@@ -9,7 +9,7 @@ const JournalList = ({journals}) => {
 
     return (
       <div>
-        <p>From JOurnallist</p>
+       
          <ul>{journalArray}</ul>                
       
       </div>
