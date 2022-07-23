@@ -1,23 +1,25 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
-const JournalDetails = ({journalObj, onDeleteJournal, onUpdateJournal}) => {
+const JournalDetails = ({journalObj, onDeleteJournal}) => {
 const {date, content, id} = journalObj
+const history = useHistory();
 
-const handleUpdate = () => {
-      fetch(`http://localhost:9292/journals/${id}`, {
-        method: 'PATCH', 
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json'
-        },
-        body: JSON.stringify({
-          date: date,
-          content: content
-        })
-      })
-      .then(res => res.json())
-      .then((updatedJournal) => onUpdateJournal(updatedJournal))
-    }
+// const handleUpdate = () => {
+//       fetch(`http://localhost:9292/journals/${id}`, {
+//         method: 'PATCH', 
+//         headers: {
+//           'Content-Type': 'application/json',
+//           Accept: 'application/json'
+//         },
+//         body: JSON.stringify({
+//           date: date,
+//           content: content
+//         })
+//       })
+//       .then(res => res.json())
+//       .then((updatedJournal) => onUpdateJournal(updatedJournal))
+//     }
 
 const handleDelete = () => {
   fetch(`http://localhost:9292/journals/${id}`, {
@@ -27,11 +29,16 @@ const handleDelete = () => {
   .then(() => onDeleteJournal(id))
 }
 
+const handleEditForm = () => {
+  history.push(`/journals/${id}`)
+}
+
     return (
       <div>
         <h3>{date}</h3> 
         <p>{content}</p>
-        <button onClick={handleUpdate}>Edit</button>
+        {/* <button onClick={handleUpdate}>Edit</button> */}
+        <button onClick={handleEditForm}>Edit</button>
         <button onClick={handleDelete}>Delete</button>
       </div>
     );
