@@ -2,7 +2,7 @@ import React from 'react';
 // import {useState, useEffect} from 'react'
 import JournalList from './JournalList'
 
-const JournalContainer = ({journals, onDeleteJournal, onUpdateJournal}) => {
+const JournalContainer = ({journals, onDeleteJournal}) => {
     // const [journals, setJournals] = useState([])
 
     // useEffect(() => {
@@ -13,7 +13,7 @@ const JournalContainer = ({journals, onDeleteJournal, onUpdateJournal}) => {
 
     return (
       <div>       
-        <JournalList journals={journals} onDeleteJournal={onDeleteJournal} onUpdateJournal={onUpdateJournal} />
+        <JournalList journals={journals} onDeleteJournal={onDeleteJournal} />
       
       </div>
     );
