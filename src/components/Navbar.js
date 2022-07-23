@@ -1,3 +1,5 @@
+// import {Link} from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import Typography from '@material-ui/core/Typography'
 import Drawer from '@material-ui/core/Drawer'
 import { makeStyles } from '@material-ui/core'
@@ -5,9 +7,6 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 // import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import { useHistory, useLocation } from 'react-router-dom'
-
-const drawerWidth = 100
 
 const useStyles = makeStyles({
   page: {
@@ -18,10 +17,10 @@ const useStyles = makeStyles({
     display: 'flex',
   },
   drawer: {
-    width: drawerWidth,
+    width: 50,
   },
   drawerPaper: {
-    width: drawerWidth,
+    width: 20,
   },
 })
 
@@ -52,15 +51,17 @@ const Navbar = () => {
       path: '/journals/new' 
     }
   ];
-
+                                                                                                
     return (
-      <div>
+      
+        <div className={classes.root}>
         <Drawer
         className={classes.drawer}
         variant="permanent"
         classes={{ paper: classes.drawerPaper }}
         anchor="left"
       >  
+
       <div>      
           <Typography variant="h5" className={classes.title}>
             myBujo
@@ -69,20 +70,25 @@ const Navbar = () => {
 
           <List>
           {menuItems.map((item) => (
+            <div>
             <ListItem 
               button 
-              key={item.text} 
+              key={item.text}              
               onClick={() => history.push(item.path)}
-              className={location.pathname == item.path ? classes.active : null}
+              className={location.pathname === item.path ? classes.active : null}
             >
-              {/* <ListItemIcon>{item.icon}</ListItemIcon> */}
+              {/* <ListItemIcon>{item.icon}</ListItemIcon>  */}
               <ListItemText primary={item.text} />
             </ListItem>
+            </div>
           ))}
-        </List>
+        </List> 
+        {/* <NavLink to="/todos">Todo List</NavLink>
+        <NavLink to="/moods">Mood Tracker</NavLink> */}
+            
         </Drawer>       
-      
       </div>
+      
     );
   }
   
