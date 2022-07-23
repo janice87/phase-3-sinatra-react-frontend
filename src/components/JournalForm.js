@@ -1,6 +1,9 @@
 import { useState } from "react";
-//import TextField from '@material-ui/core/TextField'
 import React from 'react';
+import Container from '@material-ui/core/Container';
+//import Box from '@material-ui/core/Box';
+
+//import TextField from '@material-ui/core/TextField'
 //import { makeStyles } from '@material-ui/core/styles';
 
 const JournalForm = ({onHandleAddJournal}) => {
@@ -53,6 +56,14 @@ const JournalForm = ({onHandleAddJournal}) => {
 
     return (
       <div>
+        <Container maxWidth="sm">
+        {/* <Box
+        m={1}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        > */}
+
         <form onSubmit={handleSubmit}>
         <label htmlFor="date">Today's Date:</label>  
         <input type="date" name="date" value={journalForm.date} onChange={handleChange} required />
@@ -77,6 +88,9 @@ const JournalForm = ({onHandleAddJournal}) => {
         <br/>
         <input type="submit" value="Submit Entry" />        
         </form>
+
+        {/* </Box> */}
+        </Container>  
       </div>
     );
   }

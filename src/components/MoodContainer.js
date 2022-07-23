@@ -17,10 +17,15 @@ const MoodContainer = () => {
       setMoods(updatedMoods)
     }
 
+    const handleDeleteMood = (id) => {
+      const updatedMoods = moods.filter(mood => mood.id !== id)
+      setMoods(updatedMoods)
+    }
+
     return (
       <div>
         <MoodForm onAddMood={handleAddMood} />       
-        <MoodList moods={moods} />      
+        <MoodList moods={moods} onHandleDeleteMood={handleDeleteMood} />      
       </div>
     );
   }
