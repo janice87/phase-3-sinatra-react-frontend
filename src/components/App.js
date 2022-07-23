@@ -23,6 +23,18 @@ const App = () => {
     setJournals(updatedJournals)
   }
 
+  const handleDeleteJournal = (id) => {
+    const updatedJournals = journals.filter(journal => journal.id !== id)
+    setJournals(updatedJournals)
+  }
+
+  const handleUpdateJournal = (editedJournal) => {
+    const updatedJournals = journals.map(journal => 
+      journal.id === editedJournal.id ? editedJournal : journal
+      )
+      setJournals(updatedJournals)
+  }
+
   return (
     <div>
       <Navbar />
@@ -31,7 +43,7 @@ const App = () => {
         <Route path="/todos"><TodoContainer /></Route>
         <Route path="/moods"><MoodContainer /></Route>
         <Route path="/journals/new"><JournalForm onHandleAddJournal={handleAddJournal} /></Route>
-        <Route path="/journals"><JournalContainer journals={journals} /></Route>
+        <Route path="/journals"><JournalContainer journals={journals} onDeleteJournal={handleDeleteJournal} onUpdateJournal={handleUpdateJournal}/></Route>
         <Route path=""></Route>     
 
       </Switch>          
