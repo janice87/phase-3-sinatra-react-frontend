@@ -1,17 +1,15 @@
 import React from 'react';
 import MoodDetails from './MoodDetails'
 
-const MoodList = ({moods}) => {
+const MoodList = ({moods, onHandleDeleteMood}) => {
 
     const moodArray = moods.map(moodObj => (
-        <MoodDetails key={moodObj.id} moodObj={moodObj} /> 
+        <MoodDetails key={moodObj.id} moodObj={moodObj} onHandleDeleteMood={onHandleDeleteMood} /> 
     ))
 
     return (
-      <div>
-        <p>From moodlist</p>
-         <ul>{moodArray}</ul>                
-      
+      <div>        
+         <ul>{moodArray}</ul>            
       </div>
     );
   }

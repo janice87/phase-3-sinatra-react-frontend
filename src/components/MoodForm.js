@@ -1,4 +1,6 @@
 import {useState} from 'react'
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
 
 const MoodForm = ({onAddMood}) => {
     const [moodForm, setMoodForm] = useState({
@@ -37,7 +39,26 @@ const MoodForm = ({onAddMood}) => {
 
     return (
       <div>
-        <form onSubmit={handleSubmit}>
+          <Container maxWidth="xs">
+            <Box
+            m={1}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            >
+        <h3>Mood Tracker 😀😑🙁</h3>
+        <br/>
+        </Box>                  
+     </Container> 
+
+        <Container maxWidth="m">
+            <Box
+            m={1}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            >
+        <form onSubmit={handleSubmit}>        
         <label htmlFor="date">Date:</label>  
         <input type="date" name="date" value={moodForm.date} onChange={handleChange} required /> <br/>
 
@@ -51,9 +72,15 @@ const MoodForm = ({onAddMood}) => {
         <input type="text" name="challenge" value={moodForm.challenge} onChange={handleChange} required /> <br/>
 
         <input type="submit" value="Track Mood" />
+        <br/>
         </form>
+        </Box>                  
+     </Container> 
       </div>
     );
   }
   
   export default MoodForm;
+
+
+
