@@ -8,8 +8,7 @@ const TodoList = ({todos, onHandleDeleteTodo}) => {
     ))
 
     return (
-      <div>
-        <p>TodoList Component</p>
+      <div>        
          <ul>{todoArray}</ul>                
       
       </div>

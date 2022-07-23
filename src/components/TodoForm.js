@@ -1,5 +1,6 @@
 import { useState } from "react";
-// import Button from '@mui/material/Button';
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
 
 const TodoForm = ({onHandleAddTodo}) => {
 const [todo, setTodo] = useState("");
@@ -20,15 +21,29 @@ const handleSubmit = (e) => {
 }
     return (
       <div>
-        <h2>Todays Todos:</h2>
+        <Container maxWidth="m">
+        <Box
+        m={1}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        >
+
+        <h2>📝Add Todos:</h2>
+        <br/>
+        <br/>
         <form onSubmit={handleSubmit}>
-        <label htmlFor="todo">Add todo</label>
+        <br/>
         <input type="text" id="todo" onChange={(e) => setTodo(e.target.value)} value={todo} placeholder="Add task..." />
         {/* <button>Submit</button> */}
         <input type="submit" value="Submit" />
         </form>   
+        
+        </Box>
+        </Container> 
       </div>
     );
   }
   
   export default TodoForm;
+  

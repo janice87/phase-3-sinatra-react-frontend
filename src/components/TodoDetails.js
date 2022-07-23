@@ -1,4 +1,6 @@
 import React from 'react';
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
 
 const TodoDetails = ({todoObj, onHandleDeleteTodo}) => {
     const {todo, id} = todoObj
@@ -13,8 +15,18 @@ const TodoDetails = ({todoObj, onHandleDeleteTodo}) => {
 
     return (
       <div>
-        
-        <p> ☐ {todo} <button onClick={handleDeleteTodo}>⌫</button></p>             
+        <Container maxWidth="sm">
+        <Box
+        m={1}
+        boxShadow={1}
+        bgcolor="background.paper"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        >
+        <p> ☐ {todo} <button onClick={handleDeleteTodo}>⌫</button></p>  
+        </Box>                  
+           </Container>           
       
       </div>
     );
