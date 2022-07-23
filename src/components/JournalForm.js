@@ -1,5 +1,5 @@
 import { useState } from "react";
-import TextField from '@material-ui/core/TextField'
+//import TextField from '@material-ui/core/TextField'
 import React from 'react';
 //import { makeStyles } from '@material-ui/core/styles';
 
@@ -27,6 +27,7 @@ const JournalForm = ({onHandleAddJournal}) => {
     })
     .then(res => res.json())
     .then(data => onHandleAddJournal(data))
+    setJournalForm({date: "", content: ""})
   }
 
   const handleChange = (e) => {
@@ -53,26 +54,26 @@ const JournalForm = ({onHandleAddJournal}) => {
     return (
       <div>
         <form onSubmit={handleSubmit}>
+        <label htmlFor="date">Today's Date:</label>  
+        <input type="date" name="date" value={journalForm.date} onChange={handleChange} required />
 
-        <TextField
+         {/* <TextField
         value={journalForm.date} 
         onChange={handleChange}
         id="date"
         label="Todays Date"
         type="date"
-        // defaultValue="2022-07-22"
-        // className={classes.textField}
-        // InputLabelProps={{
-        //   shrink: true,
-        // }}
-      />  
-        <TextField value={journalForm.content} onChange={handleChange} label="Enter Journal" variant="outlined" multiline required />
-
-        {/* <label htmlFor="date">Today's Date:</label>  
-        <input type="date" name="date" value={journalForm.date} onChange={handleChange} required /> */}
+        defaultValue="2022-07-22"
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />   */}
+        {/* <TextField value={journalForm.content} onChange={handleChange} label="Enter Journal" variant="outlined" multiline required /> */}
+       
         <br/>
-        {/* <label htmlFor="date">Enter Journal:</label> */}
-        {/* <textarea rows="6" cols="50" name="content" value={journalForm.content} onChange={handleChange}></textarea> */}
+        <label htmlFor="date">Enter Journal:</label>
+        <textarea rows="6" cols="50" name="content" value={journalForm.content} onChange={handleChange}></textarea>
         <br/>
         <input type="submit" value="Submit Entry" />        
         </form>
