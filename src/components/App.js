@@ -7,6 +7,7 @@ import TodoContainer from './TodoContainer'
 import MoodContainer from './MoodContainer'
 import JournalContainer from './JournalContainer'
 import JournalForm from './JournalForm'
+import JournalEditForm from './JournalEditForm'
 
 const App = () => {
 
@@ -40,11 +41,11 @@ const App = () => {
       <Navbar />
       <Switch>
         <Route exact path="/"><Home /></Route>
-        <Route path="/todos"><TodoContainer /></Route>
-        <Route path="/moods"><MoodContainer /></Route>
-        <Route path="/journals/new"><JournalForm onHandleAddJournal={handleAddJournal} /></Route>
-        <Route path="/journals"><JournalContainer journals={journals} onDeleteJournal={handleDeleteJournal} onUpdateJournal={handleUpdateJournal}/></Route>
-        <Route path=""></Route>     
+        <Route exact path="/todos"><TodoContainer /></Route>
+        <Route exact path="/moods"><MoodContainer /></Route>
+        <Route exact path="/journals/:id"><JournalEditForm journals={journals} onUpdateJournal={handleUpdateJournal} /></Route>     
+        <Route exact path="/journals/new"><JournalForm onHandleAddJournal={handleAddJournal} /></Route>
+        <Route exact path="/journals"><JournalContainer journals={journals} onDeleteJournal={handleDeleteJournal} /></Route>
 
       </Switch>          
     </div>
