@@ -1,5 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
 
 const JournalDetails = ({journalObj, onDeleteJournal}) => {
 const {date, content, id} = journalObj
@@ -35,11 +37,21 @@ const handleEditForm = () => {
 
     return (
       <div>
+         <Container maxWidth="m">
+        <Box
+        m={1}
+        boxShadow={1}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        >        
         <h3>{date}</h3> 
         <p>{content}</p>
-        {/* <button onClick={handleUpdate}>Edit</button> */}
+      
         <button onClick={handleEditForm}>Edit</button>
         <button onClick={handleDelete}>Delete</button>
+        </Box>
+        </Container>
       </div>
     );
   }
