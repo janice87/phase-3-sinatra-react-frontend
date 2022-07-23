@@ -1,10 +1,10 @@
 import React from 'react';
 import JournalDetails from './JournalDetails'
 
-const JournalList = ({journals}) => {
+const JournalList = ({journals, onDeleteJournal, onUpdateJournal}) => {
 
     const journalArray = journals.map(journalObj => (
-        <JournalDetails key={journalObj.id} journalObj={journalObj} /> 
+        <JournalDetails key={journalObj.id} journalObj={journalObj} onDeleteJournal={onDeleteJournal} onUpdateJournal={onUpdateJournal} /> 
     ))
 
     return (
