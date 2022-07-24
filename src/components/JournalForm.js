@@ -1,7 +1,8 @@
 import { useState } from "react";
 import React from 'react';
 import Container from '@material-ui/core/Container';
-//import Box from '@material-ui/core/Box';
+import Box from '@material-ui/core/Box';
+import { useHistory } from "react-router-dom";
 
 //import TextField from '@material-ui/core/TextField'
 //import { makeStyles } from '@material-ui/core/styles';
@@ -11,6 +12,8 @@ const JournalForm = ({onHandleAddJournal}) => {
     date: "",
     content: ""
   })
+
+  const history = useHistory();
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,8 +32,9 @@ const JournalForm = ({onHandleAddJournal}) => {
       body: JSON.stringify(newJournal)
     })
     .then(res => res.json())
-    .then(data => onHandleAddJournal(data))
-    setJournalForm({date: "", content: ""})
+    .then(data => onHandleAddJournal(data))   
+    // setJournalForm({date: "", content: ""})
+    history.push(`/journals`)
   }
 
   const handleChange = (e) => {
@@ -57,12 +61,12 @@ const JournalForm = ({onHandleAddJournal}) => {
     return (
       <div>
         <Container maxWidth="sm">
-        {/* <Box
+        <Box
         m={1}
         display="flex"
         justifyContent="center"
         alignItems="center"
-        > */}
+        >
 
         <form onSubmit={handleSubmit}>
         <label htmlFor="date">Today's Date:</label>  
@@ -83,13 +87,13 @@ const JournalForm = ({onHandleAddJournal}) => {
         {/* <TextField value={journalForm.content} onChange={handleChange} label="Enter Journal" variant="outlined" multiline required /> */}
        
         <br/>
-        <label htmlFor="date">Enter Journal:</label>
+        {/* <label htmlFor="date">Enter Journal:</label> */}
         <textarea rows="6" cols="50" name="content" value={journalForm.content} onChange={handleChange}></textarea>
         <br/>
         <input type="submit" value="Submit Entry" />        
         </form>
 
-        {/* </Box> */}
+        </Box>
         </Container>  
       </div>
     );
