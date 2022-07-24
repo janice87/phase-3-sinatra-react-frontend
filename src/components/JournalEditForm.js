@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
 
 const JournalEditForm = ({onUpdateJournal}) => {
     const [journalEntry, setJournalEntry] = useState({})
@@ -12,7 +14,8 @@ const JournalEditForm = ({onUpdateJournal}) => {
         .then(journalObj => setJournalEntry(journalObj))
     }, [id])
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+      e.preventDefault();
         fetch(`http://localhost:9292/journals/${id}`, {
           method: 'PATCH', 
           headers: {
@@ -42,6 +45,14 @@ const JournalEditForm = ({onUpdateJournal}) => {
 
     return (
       <div>     
+        <Container maxWidth="sm">
+        <Box
+        m={1}
+        boxShadow={1}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        > 
         <form onSubmit={handleSubmit}>
 
         <label htmlFor="date">Today's Date:</label>  
@@ -51,7 +62,9 @@ const JournalEditForm = ({onUpdateJournal}) => {
         <textarea rows="6" cols="50" name="content" value={journalEntry.content} onChange={handleChange}></textarea>
         <br/>
         <input type="submit" value="Submit Entry" />        
-        </form>      
+        </form>
+        </Box>
+        </Container>      
       </div>
     );
   }
