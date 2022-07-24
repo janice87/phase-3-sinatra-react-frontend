@@ -9,6 +9,7 @@ import JournalContainer from './JournalContainer'
 import JournalForm from './JournalForm'
 import JournalEditForm from './JournalEditForm'
 
+
 const App = () => {
 
   const [journals, setJournals] = useState([])
@@ -21,7 +22,7 @@ const App = () => {
 
   const handleAddJournal = (newJournal) => {
     const updatedJournals = [...journals, newJournal]
-    setJournals(updatedJournals)
+    setJournals(updatedJournals)    
   }
 
   const handleDeleteJournal = (id) => {
@@ -42,9 +43,10 @@ const App = () => {
       <Switch>
         <Route exact path="/"><Home /></Route>
         <Route exact path="/todos"><TodoContainer /></Route>
+        <Route exact path="/todos/:id"><TodoContainer /></Route>
         <Route exact path="/moods"><MoodContainer /></Route>
-        <Route exact path="/journals/:id"><JournalEditForm journals={journals} onUpdateJournal={handleUpdateJournal} /></Route>     
         <Route exact path="/journals/new"><JournalForm onHandleAddJournal={handleAddJournal} /></Route>
+        <Route exact path="/journals/:id/edit"><JournalEditForm journals={journals} onUpdateJournal={handleUpdateJournal} /></Route>     
         <Route exact path="/journals"><JournalContainer journals={journals} onDeleteJournal={handleDeleteJournal} /></Route>
 
       </Switch>          
