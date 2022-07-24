@@ -13,6 +13,10 @@ const TodoDetails = ({todoObj, onHandleDeleteTodo}) => {
       .then(() => onHandleDeleteTodo(id))
     }
 
+    const handleEditTodo = () => {
+      
+    }
+
     return (
       <div>
         <Container maxWidth="sm">
@@ -24,7 +28,7 @@ const TodoDetails = ({todoObj, onHandleDeleteTodo}) => {
         justifyContent="center"
         alignItems="center"
         >
-        <p> ☐ {todo} <button onClick={handleDeleteTodo}>⌫</button></p>  
+        <p> ☐ {todo} <button onClick={handleDeleteTodo}>⌫</button> <button onClick={handleEditTodo}>Edit</button></p>  
         </Box>                  
            </Container>           
       

@@ -28,6 +28,12 @@ const MoodForm = ({onAddMood}) => {
         })
         .then(res => res.json())
         .then(data => onAddMood(data))
+        setMoodForm({
+            mood: "",
+            date: "",
+            win: "",
+            challenge: ""
+        })
     }
 
     const handleChange = (e) => {

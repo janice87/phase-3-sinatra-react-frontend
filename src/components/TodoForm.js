@@ -14,7 +14,7 @@ const handleSubmit = (e) => {
              Accept: 'application/json'
         },
         body: JSON.stringify({todo: todo})      //why is this null???  
-    }) 
+    })
     .then(res => res.json())
     .then(data => onHandleAddTodo(data))
     setTodo("")
