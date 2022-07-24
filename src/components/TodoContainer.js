@@ -24,7 +24,7 @@ const TodoContainer = () => {
     }
 
     return (
-      <div>   
+      <div>         
         <TodoForm onHandleAddTodo={handleAddTodo} />    
         <TodoList todos={todos} onHandleDeleteTodo={handleDeleteTodo} />
       

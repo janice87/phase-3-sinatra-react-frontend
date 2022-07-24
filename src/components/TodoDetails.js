@@ -1,6 +1,9 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
+import IconButton from '@material-ui/core/IconButton';
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
+import BackspaceOutlinedIcon from '@material-ui/icons/BackspaceOutlined';
 
 const TodoDetails = ({todoObj, onHandleDeleteTodo}) => {
     const {todo, id} = todoObj
@@ -28,12 +31,22 @@ const TodoDetails = ({todoObj, onHandleDeleteTodo}) => {
         justifyContent="center"
         alignItems="center"
         >
-        <p> ☐ {todo} <button onClick={handleDeleteTodo}>⌫</button> <button onClick={handleEditTodo}>Edit</button></p>  
+       
+        <p> ☐ {todo}
+        <IconButton onClick={handleEditTodo} aria-label="edit" size="small">
+          <EditOutlinedIcon fontSize="small" />
+        </IconButton>
+        <IconButton onClick={handleDeleteTodo} aria-label="delete " size="small">
+          <BackspaceOutlinedIcon fontSize="small" />
+        </IconButton>         
+       </p>  
+       
         </Box>                  
-           </Container>           
+        </Container>           
       
       </div>
     );
   }
   
   export default TodoDetails;
+
