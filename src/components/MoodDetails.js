@@ -1,10 +1,9 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-// import Card from '@material-ui/core/Card';
-// import CardContent from '@material-ui/core/CardContent';
-// import CardActions from '@material-ui/core/CardActions';
-//import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
+import IconButton from '@material-ui/core/IconButton';
 
 const MoodDetails = ({moodObj, onHandleDeleteMood}) => {
     const {mood, date, win, challenge, id} = moodObj
@@ -16,65 +15,36 @@ const MoodDetails = ({moodObj, onHandleDeleteMood}) => {
       .then(res => res.json())
       .then(() => onHandleDeleteMood(id))
     }
-
-    // const useStyles = makeStyles({
-    //   root: {
-    //     minWidth: 400,
-    //   }
-    // });
-
-    // const classes = useStyles();
     
     return (
       <div>
         <Container maxWidth="sm">
-        <Box        
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        shadow={1}
-        >        
+          <Box      
+          justifyContent="center"
+          alignItems="center"       
+          style={{ border: "0.2px solid gray", margin: "1em", padding: "10px" }}       
+          >
         <br/>
-
-       <h3>{date}<span><button onClick={handleDeleteTodo}>⌫</button></span></h3>
-        <p>Today's mood: {mood}</p>
+          <Typography align="left" variant="h6">
+            {date}
+            <span>
+            <IconButton onClick={handleDeleteTodo} aria-label="delete" size="small">
+              <DeleteForeverOutlinedIcon fontSize="medium" />
+            </IconButton>
+            </span>
+          </Typography>          
+          
+        <Typography align="left" variant="body1" style={{ padding: "2px" }}>Today's mood: {mood}</Typography>
         <br/>
-        <p>Win of the day:{win}</p> 
+        <Typography align="left" variant="body1" style={{ padding: "2px" }}>Win of the day: {win}</Typography> 
         <br/>
-        <p>Challenge of the day:{challenge}</p>
-        {/* </Box>                  
-      </Container> 
-         */}
-        {/* <Card>
-        <CardContent>       
-        <h4>{date}<span><button onClick={handleDeleteTodo}>⌫</button></span></h4>
-        <p>Today's mood: {mood}</p>
-        <br/>
-        <p>Win of the day:{win}</p> 
-        <br/>
-        <p>Challenge of the day:{challenge}</p>
-       </CardContent>     
-      </Card>    */}
-        
+        <Typography align="left" variant="body1" style={{ padding: "2px" }}>Challenge of the day: {challenge}</Typography>
+                     
         </Box>
-        </Container>            
-      
+        </Container>     
       </div>
     );
   }
   
   export default MoodDetails;
 
-// <Typography className={classes.title} color="textSecondary" gutterBottom> */}
-//   <Card>
-//   <CardContent>
-//   {/* <Typography className={classes.title} color="textSecondary" gutterBottom> */}
-//   <h4>{date}<span><button onClick={handleDeleteTodo}>⌫</button></span></h4>
-//   <p>Today's mood: {mood}</p>
-//   <br/>
-//   <p>Win of the day:{win}</p> 
-//   <br/>
-//   <p>Challenge of the day:{challenge}</p>
-// </Typography> 
-//  </CardContent>     
-// </Card>   

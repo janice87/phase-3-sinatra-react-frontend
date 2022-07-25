@@ -1,18 +1,12 @@
 import { useState } from "react";
-import React from 'react';
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
 import { useHistory } from "react-router-dom";
-import TextField from '@material-ui/core/TextField';
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-//import { makeStyles } from '@material-ui/core/styles';
+import { Container, Box, TextField, Typography, TextareaAutosize, Button} from "@material-ui/core";
 
 const JournalForm = ({onHandleAddJournal}) => {
   const [journalForm, setJournalForm] = useState({
     date: "",
     content: ""
   })
-
   const history = useHistory();
   
   const handleSubmit = (e) => {
@@ -32,8 +26,7 @@ const JournalForm = ({onHandleAddJournal}) => {
       body: JSON.stringify(newJournal)
     })
     .then(res => res.json())
-    .then(data => onHandleAddJournal(data))   
-    // setJournalForm({date: "", content: ""})
+    .then(data => onHandleAddJournal(data)) 
     history.push(`/journals`)
   }
 
@@ -42,22 +35,7 @@ const JournalForm = ({onHandleAddJournal}) => {
       ...journalForm,
       [e.target.name]: e.target.value
     })
-  }    
-
-  // const useStyles = makeStyles((theme) => ({
-  //   container: {
-  //     display: 'flex',
-  //     flexWrap: 'wrap',
-  //   },
-  //   textField: {
-  //     marginLeft: theme.spacing(1),
-  //     marginRight: theme.spacing(1),
-  //     width: 200,
-  //   },
-  // }));  
-  
-  //   const classes = useStyles();
-
+  }   
     return (
       <div>
       <Container maxWidth="xs">
@@ -67,45 +45,44 @@ const JournalForm = ({onHandleAddJournal}) => {
         justifyContent="center"
         alignItems="center"
         >
-          <h3>📔 Add Post</h3> 
+          <Typography variant="h5" align="center" style={{ marginBottom: "1em" }}>📔Add Post</Typography> 
           <br /> 
-          </Box>
+        </Box>
         </Container>  
 
         <Container maxWidth="m">
-        <Box
-        m={1}
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        >
-        <form onSubmit={handleSubmit}>
-        <TextField 
-        type="date" 
-        id="outlined-size-small"
-        name="date" 
-        onChange={handleChange} 
-        value={journalForm.date}    
-        variant="outlined"
-        label="Todays Date"
-        InputLabelProps={{
-          shrink: true,
-        }}       
-        required />   
-
-        <br/> 
-
-      <TextareaAutosize
-      aria-label="post"
-      value={journalForm.content}
-      onChange={handleChange}
-      minRows={6}
-      style={{ width: 400 }}
-       />
-        <br/>
-        <input type="submit" value="Submit Entry" />        
-        </form>
-        </Box>
+          <Box       
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          >
+            <form onSubmit={handleSubmit}>
+            <TextField 
+                  type="date" 
+                  id="outlined-size-small"
+                  name="date" 
+                  onChange={handleChange} 
+                  value={journalForm.date}             
+                  style={{ marginBottom: "5px", width: "150px" }}  
+                  variant="outlined"
+                  label="Todays Date"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}       
+                  required /> 
+            <br/> 
+             <TextareaAutosize
+                  name="content"
+                  onChange={handleChange}
+                  value={journalForm.content}
+                  minRows={8}
+                  style={{ width: 400 }}                  
+                  aria-label="post"
+                  />          
+            <br/>
+            <Button type="submit" variant="outlined">Submit</Button>
+            </form>
+          </Box>
         </Container>  
       </div>
     );
@@ -113,6 +90,5 @@ const JournalForm = ({onHandleAddJournal}) => {
   
   export default JournalForm;
 
-  // <textarea rows="6" cols="50" name="content" value={journalForm.content} onChange={handleChange}></textarea>
-  // <label htmlFor="date">Today's Date:</label>  
-  // <input type="date" name="date" value={journalForm.date} onChange={handleChange} required />
+
+    // {/* <textarea rows="8" cols="50" name="content" value={journalForm.content} onChange={handleChange}></textarea> */}

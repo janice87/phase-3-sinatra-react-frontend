@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
+import { Container, Box, TextField, Typography, TextareaAutosize, Button} from "@material-ui/core";
 
 const JournalEditForm = ({onUpdateJournal}) => {
     const [journalEntry, setJournalEntry] = useState({})
@@ -44,27 +43,53 @@ const JournalEditForm = ({onUpdateJournal}) => {
       }    
 
     return (
-      <div>     
-        <Container maxWidth="sm">
+      <div>   
+      <Container maxWidth="xs">
         <Box
         m={1}
-        boxShadow={1}
         display="flex"
         justifyContent="center"
         alignItems="center"
-        > 
-        <form onSubmit={handleSubmit}>
-
-        <label htmlFor="date">Today's Date:</label>  
-        <input type="date" name="date" value={journalEntry.date} onChange={handleChange} required />
-        <br/>
-        <label htmlFor="date">Edit Journal:</label>
-        <textarea rows="6" cols="50" name="content" value={journalEntry.content} onChange={handleChange}></textarea>
-        <br/>
-        <input type="submit" value="Submit Entry" />        
-        </form>
+        >
+          <Typography variant="h5" align="center" style={{ marginBottom: "1em" }}>✍️Edit Post</Typography> 
+          <br /> 
         </Box>
-        </Container>      
+      </Container>  
+
+      <Container maxWidth="m">
+          <Box       
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          >
+          <form onSubmit={handleSubmit}>
+          <TextField 
+                  type="date" 
+                  id="outlined-size-small"
+                  name="date" 
+                  onChange={handleChange}                 
+                  value={journalEntry.date}            
+                  style={{ marginBottom: "5px", width: "150px" }}  
+                  variant="outlined"
+                  label="Edit Date"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}       
+                  required /> 
+            <br/> 
+             <TextareaAutosize
+                  name="content"
+                  onChange={handleChange}
+                  value={journalEntry.content}
+                  minRows={8}
+                  style={{ width: 400 }}                  
+                  aria-label="post"
+                  />          
+            <br/>
+            <Button type="submit" variant="outlined">Edit Journal</Button>
+            </form>
+          </Box>
+        </Container>  
       </div>
     );
   }

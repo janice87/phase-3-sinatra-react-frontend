@@ -1,4 +1,3 @@
-import React from 'react';
 import {useState, useEffect} from 'react'
 import TodoList from './TodoList'
 import TodoForm from './TodoForm';

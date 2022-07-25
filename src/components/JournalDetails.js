@@ -5,6 +5,7 @@ import Box from '@material-ui/core/Box';
 import IconButton from '@material-ui/core/IconButton';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import BackspaceOutlinedIcon from '@material-ui/icons/BackspaceOutlined';
+import Typography from '@material-ui/core/Typography';
 
 const JournalDetails = ({journalObj, onDeleteJournal}) => {
 const {date, content, id} = journalObj
@@ -20,12 +21,14 @@ const handleDelete = () => {
     return (
       <div>
         <Container maxWidth="sm">
-        <Box        
-        display="flex"
+        <Box     
         justifyContent="center"
         alignItems="center"
-        >        
-        <h3>
+        boxShadow={1}
+        style={{ marginBottom: "1em" }}
+        >    
+
+        <Typography align="left" display="initial" variant="h6">
           {date}
         <IconButton aria-label="edit" size="small">
           <Link to={`/journals/${id}/edit`}><EditOutlinedIcon fontSize="small" /></Link>
@@ -33,17 +36,12 @@ const handleDelete = () => {
         <IconButton onClick={handleDelete} aria-label="delete" size="small">
           <BackspaceOutlinedIcon fontSize="small" />
         </IconButton>  
-        </h3> 
-        </Box>
-
-        <Box        
-        boxShadow={1}
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        >      
-        <p>{content}</p>       
-        <br />       
+        </Typography>        
+        
+        <Typography align="left" variant="body2" display="initial" style={{ padding: "10px" }}>
+          {content}
+        </Typography>       
+        
         </Box>
         </Container>
       </div>

@@ -3,7 +3,7 @@ import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import IconButton from '@material-ui/core/IconButton';
 import BackspaceOutlinedIcon from '@material-ui/icons/BackspaceOutlined';
-// import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
+import Typography from '@material-ui/core/Typography';
 
 const TodoDetails = ({todoObj, onHandleDeleteTodo}) => {
     const {todo, id} = todoObj
@@ -19,25 +19,16 @@ const TodoDetails = ({todoObj, onHandleDeleteTodo}) => {
     return (
       <div>
         <Container maxWidth="sm">
-        <Box        
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        >       
-        <p> ☐ {todo}   
-        <IconButton onClick={handleDeleteTodo} aria-label="delete" size="small">
-          <BackspaceOutlinedIcon fontSize="small" />
-        </IconButton>         
-       </p>        
-      </Box>                  
-      </Container>           
-      
+        <Box justifyContent="center" alignItems="center">       
+          <Typography variant="body1" align="justify" style={{ margin: ".2em" }}> ☐ {todo}   
+            <IconButton onClick={handleDeleteTodo} aria-label="delete" size="small">
+              <BackspaceOutlinedIcon fontSize="small" />
+            </IconButton>         
+          </Typography>        
+       </Box>                  
+       </Container>         
       </div>
     );
   }
   
   export default TodoDetails;
-
-//   <IconButton onClick={handleEditTodo} aria-label="edit" size="small">
-//   <EditOutlinedIcon fontSize="small" />
-// </IconButton>

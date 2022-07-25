@@ -1,9 +1,5 @@
 import { useState } from "react";
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
-import TextField from '@material-ui/core/TextField';
-import IconButton from '@material-ui/core/IconButton';
-import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined';
+import { Container, Box, TextField, Typography, Button} from "@material-ui/core";
 
 const TodoForm = ({onHandleAddTodo}) => {
 const [newTodo, setNewTodo] = useState("");
@@ -25,40 +21,27 @@ const handleSubmit = (e) => {
 }
     return (
       <div>
-      <Container maxWidth="xs">
-            <Box            
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            >
-        <h3>📝 Todo List</h3>
+      <Container maxWidth="sm">
+        <Box justifyContent="center" alignItems="center">
+        <Typography variant="h5" align="center">📝Todo List</Typography>       
         <br/>
-        </Box>                  
-      </Container> 
-
-        <Container maxWidth="xs">
-        <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        >      
         <form onSubmit={handleSubmit}>
+            <TextField 
+            type="text" 
+            id="outlined-size-small" 
+            onChange={(e) => setNewTodo(e.target.value)} 
+            value={newTodo} 
+            autoFocus={true}
+            fullWidth={true}        
+            placeholder="Add todo..."
+            variant="outlined"
+            size="small" />
         <br/>
-        <TextField 
-        type="text" 
-        id="outlined-size-small" 
-        onChange={(e) => setNewTodo(e.target.value)} 
-        value={newTodo} 
-        placeholder="Add task..." 
-        defaultValue="Small"
-        variant="outlined"
-        size="small" />
-             
-        <IconButton type="submit" aria-label="submit" size="medium">
-          <AddBoxOutlinedIcon fontSize="medium" />
-        </IconButton>
-        </form>   
-        
+          <Box m={1} display="flex" justifyContent="center" alignItems="center">
+            <Button type="submit" variant="contained" size="small">SUBMIT</Button>
+          </Box>
+        </form> 
+              
         </Box>
         </Container> 
       </div>
