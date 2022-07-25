@@ -1,9 +1,8 @@
 import {useState} from 'react'
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import IconButton from '@material-ui/core/IconButton';
-import PostAddIcon from '@material-ui/icons/PostAdd';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 const MoodForm = ({onAddMood}) => {
     const [moodForm, setMoodForm] = useState({
@@ -47,114 +46,87 @@ const MoodForm = ({onAddMood}) => {
     }
 
     return (
-      <div>
-          <Container maxWidth="xs">
-            <Box
-            m={1}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            >
-        <h3>Mood Tracker 😀😑🙁</h3>
-        <br/>
-        </Box>                  
-     </Container> 
+    <div>     
+    <Grid
+      container
+      direction="column"
+      alignItems="center"
+      alignContent="center"
+      justifyContent="center"
+      style={{ minHeight: "30vh"}}
+      spacing={5}
+      flex-wrap="wrap"      
+    >
+        <Grid item>
+        <Typography variant="h5" color="primary">
+        Mood Tracker 😀😑🙁
+        </Typography>
+        </Grid>       
 
-        <Container maxWidth="xs">
-            <Box          
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            >
+        <Grid item style={{ border: "0.2px solid gray" }}>
+        <Grid container direction="column" alignContent="center" alignItems="center" justifyContent="center">
         <form onSubmit={handleSubmit}>        
-        <label htmlFor="date">Date:</label>
-        <input type="date" name="date" value={moodForm.date} onChange={handleChange} required />
-        
-        {/* <TextField 
+        <TextField 
         type="date" 
         id="outlined-size-small"
         name="date" 
         onChange={handleChange} 
-        value={moodForm.date}        
-        // defaultValue="Small"
-        variant="outlined"
-        // size="small"
-        required /> */}
+        value={moodForm.date}      
+        variant="outlined"        
+        required
+        style={{ marginBottom: ".2em", width: "300px" }} />
          <br/>
+
         <TextField 
         type="text" 
         id="outlined-size-small"
         name="mood"  
         onChange={handleChange}
-        value={moodForm.mood} 
-        placeholder="Today's mood:" 
-        // defaultValue="Small"
+        value={moodForm.mood}        
+        placeholder="Today's mood:"        
         variant="outlined"
         size="small"
-        required />
+        required
+        style={{ marginBottom: ".2em", width: "300px"  }}
+        />
+        <br/>
 
         <TextField 
         type="text" 
         id="outlined-size-small"
         name="win"  
         onChange={handleChange}
-        value={moodForm.win} 
-        placeholder="Win of the day:" 
-        // defaultValue="Small"
+        value={moodForm.win}       
+        placeholder="Win of the day:"        
         variant="outlined"
         size="small"
+        style={{ marginBottom: ".2em", width: "300px"  }}
         required />
+        <br/>
 
         <TextField 
         type="text" 
         id="outlined-size-small"
         name="challenge"  
         onChange={handleChange}
-        value={moodForm.challenge} 
-        placeholder="Challenge of the day:" 
-        // defaultValue="Small"
+        value={moodForm.challenge}        
+        placeholder="Challenge of the day:"        
         variant="outlined"
         size="small"
+        style={{ marginBottom: ".2em", width: "300px"  }}
         required />
-        
         <br />
-        <IconButton type ="submit" aria-label="submit" size="small">
-          Track Mood <PostAddIcon fontSize="small" />
-        </IconButton>
+        <Button type="submit" variant="outlined" style={{ marginBottom: ".2em", width: "300px"  }}>Track Mood</Button>
         <br/>
         </form>
-        </Box>                  
-     </Container> 
+        </Grid>       
+        </Grid>
+        </Grid>
       </div>
     );
   }
   
   export default MoodForm;
 
-//   <label htmlFor="date">Date:</label>  
-//   <input type="date" name="date" value={moodForm.date} onChange={handleChange} required /> <br/>
-
-//   <label htmlFor="mood">Today's mood:</label>  
-//   <input type="text" name="mood" value={moodForm.mood} onChange={handleChange} required /> <br/>      
-
-//   <label htmlFor="win">Win of the day:</label>  
-//   <input type="text" name="win" value={moodForm.win} onChange={handleChange} required /> <br/>
-
-//   <label htmlFor="challenge">Challenge of the day:</label>  
-//   <input type="text" name="challenge" value={moodForm.challenge} onChange={handleChange} required /> <br/>
-
-//   <input type="submit" value="Track Mood" />
-//   <br/>
-
-// {/* <label htmlFor="mood">Today's mood:</label>  
-//         <input type="text" name="mood" value={moodForm.mood} onChange={handleChange} required /> <br/>      
-
-//         <label htmlFor="win">Win of the day:</label>  
-//         <input type="text" name="win" value={moodForm.win} onChange={handleChange} required /> <br/>
-
-//         <label htmlFor="challenge">Challenge of the day:</label>  
-//         <input type="text" name="challenge" value={moodForm.challenge} onChange={handleChange} required /> <br/>
-
-//         <input type="submit" value="Track Mood" /> */}
 
 
