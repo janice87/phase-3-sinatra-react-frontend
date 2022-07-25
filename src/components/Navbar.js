@@ -1,11 +1,5 @@
-// import {Link} from 'react-router-dom'
 import { useHistory, useLocation } from 'react-router-dom'
-import Typography from '@material-ui/core/Typography'
-import Drawer from '@material-ui/core/Drawer'
-import { makeStyles } from '@material-ui/core'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
+import { Drawer, Typography, List, ListItem, ListItemText, makeStyles} from "@material-ui/core";
 
 const useStyles = makeStyles({
   page: {
@@ -30,58 +24,57 @@ const Navbar = () => {
 
   const menuItems = [
     { 
+      id: 1, 
       text: 'Home',       
-      path: '/',
-      id: 1 
+      path: '/'
     },
     { 
+      id: 2,
       text: 'Todo List',        
-      path: '/todos',
-      id: 2 
+      path: '/todos'
     },
     { 
+      id: 3, 
       text: 'Mood Tracker',        
-      path: '/moods',
-      id: 3  
+      path: '/moods'
     },
     { 
+      id: 4,  
       text: 'Journal',        
-      path: '/journals',
-      id: 4  
+      path: '/journals'
     },
     { 
+      id: 5,  
       text: 'Add Post',        
-      path: '/journals/new',
-      id: 5  
+      path: '/journals/new'
     }
   ];
                                                                                                 
     return (      
-        <div className={classes.root}>
+      <div className={classes.root}>
         <Drawer
         className={classes.drawer}
         variant="permanent"
         classes={{ paper: classes.drawerPaper }}
         anchor="left"
       >  
-
-      <div>      
-          <Typography variant="h4">
+        <div>      
+          <Typography variant="h4" style={{margin: ".5em" }}>
             myBujo
           </Typography>
-      </div>
+        </div>
 
-          <List>
+        <List>
           {menuItems.map((item) => (
             <div>
-            <ListItem 
-              button 
-              key={item.id}              
-              onClick={() => history.push(item.path)}
-              className={location.pathname === item.path ? classes.active : null}
-            >
-            <ListItemText primary={item.text} />
-            </ListItem>
+              <ListItem 
+                button 
+                key={item.id}              
+                onClick={() => history.push(item.path)}
+                className={location.pathname === item.path ? classes.active : null}
+              >
+                <ListItemText primary={item.text} key={item.name} />
+              </ListItem>
             </div>
           ))}
         </List>                   
