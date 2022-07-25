@@ -16,7 +16,7 @@ const MoodForm = ({onAddMood}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const newMood = {
-            mood: moodForm.name,
+            mood: moodForm.mood,
             date: moodForm.date,
             win: moodForm.win,
             challenge: moodForm.challenge

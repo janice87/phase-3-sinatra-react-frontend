@@ -2,8 +2,8 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import IconButton from '@material-ui/core/IconButton';
-// import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import BackspaceOutlinedIcon from '@material-ui/icons/BackspaceOutlined';
+// import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 
 const TodoDetails = ({todoObj, onHandleDeleteTodo}) => {
     const {todo, id} = todoObj
@@ -19,16 +19,13 @@ const TodoDetails = ({todoObj, onHandleDeleteTodo}) => {
     return (
       <div>
         <Container maxWidth="sm">
-        <Box
-        // m={1}
-        // boxShadow={1}
-        // bgcolor="background.paper"
+        <Box        
         display="flex"
         justifyContent="center"
         alignItems="center"
         >       
         <p> ☐ {todo}   
-        <IconButton onClick={handleDeleteTodo} aria-label="delete " size="small">
+        <IconButton onClick={handleDeleteTodo} aria-label="delete" size="small">
           <BackspaceOutlinedIcon fontSize="small" />
         </IconButton>         
        </p>        
