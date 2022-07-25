@@ -5,7 +5,6 @@ import Drawer from '@material-ui/core/Drawer'
 import { makeStyles } from '@material-ui/core'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
-// import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 
 const useStyles = makeStyles({
@@ -32,28 +31,32 @@ const Navbar = () => {
   const menuItems = [
     { 
       text: 'Home',       
-      path: '/' 
+      path: '/',
+      id: 1 
     },
     { 
       text: 'Todo List',        
-      path: '/todos' 
+      path: '/todos',
+      id: 2 
     },
     { 
       text: 'Mood Tracker',        
-      path: '/moods' 
+      path: '/moods',
+      id: 3  
     },
     { 
       text: 'Journal',        
-      path: '/journals' 
+      path: '/journals',
+      id: 4  
     },
     { 
-      text: 'Add Journal',        
-      path: '/journals/new' 
+      text: 'Add Post',        
+      path: '/journals/new',
+      id: 5  
     }
   ];
                                                                                                 
-    return (
-      
+    return (      
         <div className={classes.root}>
         <Drawer
         className={classes.drawer}
@@ -63,7 +66,7 @@ const Navbar = () => {
       >  
 
       <div>      
-          <Typography variant="h5" className={classes.title}>
+          <Typography variant="h4">
             myBujo
           </Typography>
       </div>
@@ -73,19 +76,15 @@ const Navbar = () => {
             <div>
             <ListItem 
               button 
-              key={item.text}              
+              key={item.id}              
               onClick={() => history.push(item.path)}
               className={location.pathname === item.path ? classes.active : null}
             >
-              {/* <ListItemIcon>{item.icon}</ListItemIcon>  */}
-              <ListItemText primary={item.text} />
+            <ListItemText primary={item.text} />
             </ListItem>
             </div>
           ))}
-        </List> 
-        {/* <NavLink to="/todos">Todo List</NavLink>
-        <NavLink to="/moods">Mood Tracker</NavLink> */}
-            
+        </List>                   
         </Drawer>       
       </div>
       
