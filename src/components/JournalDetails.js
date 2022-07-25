@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
+import IconButton from '@material-ui/core/IconButton';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
-import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
+import BackspaceOutlinedIcon from '@material-ui/icons/BackspaceOutlined';
 
 const JournalDetails = ({journalObj, onDeleteJournal}) => {
 const {date, content, id} = journalObj
@@ -37,23 +38,35 @@ const handleDelete = () => {
 //   history.push(`/journals/${id}`)
 // }
 
-
     return (
       <div>
-        <Container maxWidth="m">
-        <Box
-        m={1}
-        boxShadow={1}
+        <Container maxWidth="sm">
+        <Box        
         display="flex"
         justifyContent="center"
         alignItems="center"
         >        
-        <h3>{date}</h3> 
+        <h3>
+          {date}
+        <IconButton aria-label="edit" size="small">
+          <Link to={`/journals/${id}/edit`}><EditOutlinedIcon fontSize="small" /></Link>
+        </IconButton>
+        <IconButton onClick={handleDelete} aria-label="delete" size="small">
+          <BackspaceOutlinedIcon fontSize="small" />
+        </IconButton>  
+        </h3> 
+        </Box>
+        
+        <Box        
+        boxShadow={1}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        >      
         <p>{content}</p>
-      
-        {/* <button onClick={handleEditForm}>Edit</button> */}
-        <Link to={`/journals/${id}/edit`}><EditOutlinedIcon /></Link>
-        <button onClick={handleDelete}><DeleteForeverOutlinedIcon /></button>
+       
+       <br />
+       
         </Box>
         </Container>
       </div>

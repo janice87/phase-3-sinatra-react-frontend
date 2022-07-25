@@ -3,8 +3,8 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import { useHistory } from "react-router-dom";
-
-//import TextField from '@material-ui/core/TextField'
+import TextField from '@material-ui/core/TextField';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 //import { makeStyles } from '@material-ui/core/styles';
 
 const JournalForm = ({onHandleAddJournal}) => {
@@ -60,39 +60,51 @@ const JournalForm = ({onHandleAddJournal}) => {
 
     return (
       <div>
-        <Container maxWidth="sm">
+      <Container maxWidth="xs">
         <Box
         m={1}
         display="flex"
         justifyContent="center"
         alignItems="center"
         >
+          <h3>📔 Add Post</h3> 
+          <br /> 
+          </Box>
+        </Container>  
 
+        <Container maxWidth="m">
+        <Box
+        m={1}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        >
         <form onSubmit={handleSubmit}>
-        <label htmlFor="date">Today's Date:</label>  
-        <input type="date" name="date" value={journalForm.date} onChange={handleChange} required />
-
-         {/* <TextField
-        value={journalForm.date} 
-        onChange={handleChange}
-        id="date"
+        <TextField 
+        type="date" 
+        id="outlined-size-small"
+        name="date" 
+        onChange={handleChange} 
+        value={journalForm.date}    
+        variant="outlined"
         label="Todays Date"
-        type="date"
-        defaultValue="2022-07-22"
-        className={classes.textField}
         InputLabelProps={{
           shrink: true,
-        }}
-      />   */}
-        {/* <TextField value={journalForm.content} onChange={handleChange} label="Enter Journal" variant="outlined" multiline required /> */}
-       
-        <br/>
-        {/* <label htmlFor="date">Enter Journal:</label> */}
-        <textarea rows="6" cols="50" name="content" value={journalForm.content} onChange={handleChange}></textarea>
+        }}       
+        required />   
+
+        <br/> 
+
+      <TextareaAutosize
+      aria-label="post"
+      value={journalForm.content}
+      onChange={handleChange}
+      minRows={6}
+      style={{ width: 400 }}
+       />
         <br/>
         <input type="submit" value="Submit Entry" />        
         </form>
-
         </Box>
         </Container>  
       </div>
@@ -100,3 +112,7 @@ const JournalForm = ({onHandleAddJournal}) => {
   }
   
   export default JournalForm;
+
+  // <textarea rows="6" cols="50" name="content" value={journalForm.content} onChange={handleChange}></textarea>
+  // <label htmlFor="date">Today's Date:</label>  
+  // <input type="date" name="date" value={journalForm.date} onChange={handleChange} required />

@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import IconButton from '@material-ui/core/IconButton';
-import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
+// import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import BackspaceOutlinedIcon from '@material-ui/icons/BackspaceOutlined';
 
 const TodoDetails = ({todoObj, onHandleDeleteTodo}) => {
@@ -16,33 +16,24 @@ const TodoDetails = ({todoObj, onHandleDeleteTodo}) => {
       .then(() => onHandleDeleteTodo(id))
     }
 
-    const handleEditTodo = () => {
-      
-    }
-
     return (
       <div>
         <Container maxWidth="sm">
         <Box
-        m={1}
-        boxShadow={1}
-        bgcolor="background.paper"
+        // m={1}
+        // boxShadow={1}
+        // bgcolor="background.paper"
         display="flex"
         justifyContent="center"
         alignItems="center"
-        >
-       
-        <p> ☐ {todo}
-        <IconButton onClick={handleEditTodo} aria-label="edit" size="small">
-          <EditOutlinedIcon fontSize="small" />
-        </IconButton>
+        >       
+        <p> ☐ {todo}   
         <IconButton onClick={handleDeleteTodo} aria-label="delete " size="small">
           <BackspaceOutlinedIcon fontSize="small" />
         </IconButton>         
-       </p>  
-       
-        </Box>                  
-        </Container>           
+       </p>        
+      </Box>                  
+      </Container>           
       
       </div>
     );
@@ -50,3 +41,6 @@ const TodoDetails = ({todoObj, onHandleDeleteTodo}) => {
   
   export default TodoDetails;
 
+//   <IconButton onClick={handleEditTodo} aria-label="edit" size="small">
+//   <EditOutlinedIcon fontSize="small" />
+// </IconButton>

@@ -6,7 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined';
 
 const TodoForm = ({onHandleAddTodo}) => {
-const [todo, setTodo] = useState("");
+const [todo, setTodo] = useState({});
 
 const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,23 +20,30 @@ const handleSubmit = (e) => {
     })
     .then(res => res.json())
     .then(data => onHandleAddTodo(data))
+    // .then(() => console.log("test test"))
     setTodo("")
 }
     return (
       <div>
-        <Container maxWidth="m">
+      <Container maxWidth="xs">
+            <Box            
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            >
+        <h3>📝 Todo List</h3>
+        <br/>
+        </Box>                  
+      </Container> 
+
+        <Container maxWidth="xs">
         <Box
-        m={1}
         display="flex"
         justifyContent="center"
         alignItems="center"
-        >
-
-        <h2>📝Todo List:</h2>
-        <br/>
+        >      
         <form onSubmit={handleSubmit}>
         <br/>
-
         <TextField 
         type="text" 
         id="outlined-size-small" 
