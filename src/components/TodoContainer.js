@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
-import TodoList from './TodoList'
 import TodoForm from './TodoForm';
+import TodoList from './TodoList'
 
 const TodoContainer = () => {
     const [todos, setTodos] = useState([])
@@ -24,8 +24,7 @@ const TodoContainer = () => {
     return (
       <div>         
         <TodoForm onHandleAddTodo={handleAddTodo} />    
-        <TodoList todos={todos} onHandleDeleteTodo={handleDeleteTodo} />
-      
+        <TodoList todos={todos} onHandleDeleteTodo={handleDeleteTodo} />      
       </div>
     );
   }
