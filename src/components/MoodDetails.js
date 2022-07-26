@@ -1,9 +1,6 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+import { Container, Box, Typography, IconButton } from "@material-ui/core";
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
-import IconButton from '@material-ui/core/IconButton';
 
 const MoodDetails = ({moodObj, onHandleDeleteMood}) => {
     const {mood, date, win, challenge, id} = moodObj

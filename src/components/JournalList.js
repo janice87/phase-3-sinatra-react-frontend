@@ -8,10 +8,8 @@ const JournalList = ({journals, onDeleteJournal}) => {
     ))
 
     return (
-      <div>
-       
-         <ul>{journalArray}</ul>                
-      
+      <div>       
+         <ul>{journalArray}</ul>               
       </div>
     );
   }
