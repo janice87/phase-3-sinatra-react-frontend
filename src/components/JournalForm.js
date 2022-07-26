@@ -90,6 +90,3 @@ const JournalForm = ({onHandleAddJournal}) => {
   }
   
   export default JournalForm;
-
-
-    // {/* <textarea rows="8" cols="50" name="content" value={journalForm.content} onChange={handleChange}></textarea> */}

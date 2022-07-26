@@ -3,7 +3,11 @@ import { useParams, useHistory } from "react-router-dom";
 import { Container, Box, TextField, Typography, TextareaAutosize, Button} from "@material-ui/core";
 
 const JournalEditForm = ({onUpdateJournal}) => {
-    const [journalEntry, setJournalEntry] = useState({})
+    const [journalEntry, setJournalEntry] = useState({
+      date: "",
+      content: ""
+    })
+
     const {id} = useParams(); 
     const history = useHistory();
 
@@ -27,11 +31,7 @@ const JournalEditForm = ({onUpdateJournal}) => {
           })
         })
         .then(res => res.json())
-        .then((updatedJournal) => onUpdateJournal(updatedJournal))
-        setJournalEntry({
-            date: "",
-            content: ""
-        })
+        .then((updatedJournal) => onUpdateJournal(updatedJournal))       
         history.push(`/journals`)
       }
    
@@ -56,7 +56,7 @@ const JournalEditForm = ({onUpdateJournal}) => {
         </Box>
       </Container>  
 
-      <Container maxWidth="m">
+      <Container maxWidth="md">
           <Box       
           display="flex"
           justifyContent="center"
