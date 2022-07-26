@@ -3,7 +3,6 @@ import {Route, Switch} from 'react-router-dom'
 import Navbar from './Navbar'
 import Home from './Home'
 import TodoContainer from './TodoContainer'
-// import TodoForm from './TodoForm'
 import MoodContainer from './MoodContainer'
 import JournalContainer from './JournalContainer'
 import JournalForm from './JournalForm'
@@ -49,9 +48,7 @@ const App = () => {
     <div>
       <Navbar />
       <Switch>
-        <Route exact path="/todos"><TodoContainer /></Route>
-        {/* <Route exact path="/todos/new"><TodoForm /></Route> */}
-        {/* <Route exact path="/todos/:id/edit"><TodoEditForm /></Route> */}
+        <Route exact path="/todos"><TodoContainer /></Route>      
         <Route exact path="/moods"><MoodContainer /></Route>
         <Route exact path="/journals/new"><JournalForm onHandleAddJournal={handleAddJournal} /></Route>
         <Route exact path="/journals/:id/edit"><JournalEditForm journals={journals} onUpdateJournal={handleUpdateJournal} /></Route>     
