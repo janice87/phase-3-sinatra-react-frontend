@@ -9,17 +9,16 @@ const handleSubmit = (e) => {
     fetch('http://localhost:9292/todos', {
         method: 'POST',
         headers: {
-            'Content-Type': 'applcation/json',
+            'Content-Type': 'application/json',
              Accept: 'application/json'
         },
-        body: JSON.stringify(console.log({todo: todo}))
-        
-    })
+        body: JSON.stringify({todo: todo})    
+     })
     .then(res => res.json())
-    .then(updatedTodo => onHandleAddTodo(updatedTodo))
-    // .then(() => console.log("test test"))
+    .then(updatedTodo => onHandleAddTodo(updatedTodo))    
     setTodo("")
 }
+
     return (
       <div>
       <Container maxWidth="sm">
