@@ -11,8 +11,13 @@ import JournalEditForm from './JournalEditForm'
 
 const App = () => {
   const [journals, setJournals] = useState([])
+  const [users, setUsers] = useState([])
 
   useEffect(() => {
+      fetch('http://localhost:9292/users')
+      .then(res => res.json())
+      .then(data => setUsers(data))
+
       fetch('http://localhost:9292/journals')
       .then(res => res.json())
       .then(data => setJournals(data))
@@ -35,6 +40,11 @@ const App = () => {
       setJournals(updatedJournals)
   }
 
+  const handleAddUser = (newUser) => {
+    const updatedUsers = [...users, newUser]
+    setUsers(updatedUsers)    
+  }
+
   return (
     <div>
       <Navbar />
@@ -46,7 +56,7 @@ const App = () => {
         <Route exact path="/journals/new"><JournalForm onHandleAddJournal={handleAddJournal} /></Route>
         <Route exact path="/journals/:id/edit"><JournalEditForm journals={journals} onUpdateJournal={handleUpdateJournal} /></Route>     
         <Route exact path="/journals"><JournalContainer journals={journals} onDeleteJournal={handleDeleteJournal} /></Route>
-        <Route exact path="/"><Home /></Route>
+        <Route exact path="/"><Home onAddUser={handleAddUser}/></Route>
       </Switch>          
     </div>
   );
