@@ -10,10 +10,10 @@ const useStyles = makeStyles({
     display: 'flex',
   },
   drawer: {
-    width: 200,
+    width: 150,
   },
   drawerPaper: {
-    width: 200,
+    width: 150,
   },
 })
 

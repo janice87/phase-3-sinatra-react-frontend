@@ -9,8 +9,7 @@ const TodoList = ({todos, onHandleDeleteTodo}) => {
 
     return (
       <div>        
-         <ul>{todoArray}</ul>                
-      
+         <ul>{todoArray}</ul>              
       </div>
     );
   }

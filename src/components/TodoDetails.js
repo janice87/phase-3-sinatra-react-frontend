@@ -2,10 +2,6 @@ import React from 'react';
 import {Box, Container, Typography, IconButton} from '@material-ui/core';
 import BackspaceOutlinedIcon from '@material-ui/icons/BackspaceOutlined';
 
-// import IconButton from '@material-ui/core/IconButton';
-// import Container from '@material-ui/core/Container';
-// import Typography from '@material-ui/core/Typography';
-
 const TodoDetails = ({todoObj, onHandleDeleteTodo}) => {
     const {todo, id} = todoObj
 
