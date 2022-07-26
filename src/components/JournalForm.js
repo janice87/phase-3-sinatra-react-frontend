@@ -78,6 +78,7 @@ const JournalForm = ({onHandleAddJournal}) => {
                   minRows={8}
                   style={{ width: 400 }}                  
                   aria-label="post"
+                  required
                   />          
             <br/>
             <Button type="submit" variant="outlined">Submit</Button>

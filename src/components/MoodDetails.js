@@ -26,10 +26,10 @@ const MoodDetails = ({moodObj, onHandleDeleteMood}) => {
           >
         <br/>
           <Typography align="left" variant="h6">
-            {date}
+          ⭐{date}
             <span>
             <IconButton onClick={handleDeleteTodo} aria-label="delete" size="small">
-              <DeleteForeverOutlinedIcon fontSize="medium" />
+              <DeleteForeverOutlinedIcon fontSize="small" />
             </IconButton>
             </span>
           </Typography>          

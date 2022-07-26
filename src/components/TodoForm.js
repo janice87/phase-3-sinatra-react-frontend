@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Container, Box, TextField, Typography, Button} from "@material-ui/core";
 
 const TodoForm = ({onHandleAddTodo}) => {
-const [newTodo, setNewTodo] = useState("");
+const [todo, setTodo] = useState("");
 
 const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,12 +12,13 @@ const handleSubmit = (e) => {
             'Content-Type': 'applcation/json',
              Accept: 'application/json'
         },
-        body: JSON.stringify({todo: newTodo})
+        body: JSON.stringify(console.log({todo: todo}))
+        
     })
     .then(res => res.json())
     .then(updatedTodo => onHandleAddTodo(updatedTodo))
     // .then(() => console.log("test test"))
-    setNewTodo("")
+    setTodo("")
 }
     return (
       <div>
@@ -29,8 +30,8 @@ const handleSubmit = (e) => {
             <TextField 
             type="text" 
             id="outlined-size-small" 
-            onChange={(e) => setNewTodo(e.target.value)} 
-            value={newTodo} 
+            onChange={(e) => setTodo(e.target.value)} 
+            value={todo} 
             autoFocus={true}
             fullWidth={true}        
             placeholder="Add todo..."
@@ -40,8 +41,7 @@ const handleSubmit = (e) => {
           <Box m={1} display="flex" justifyContent="center" alignItems="center">
             <Button type="submit" variant="contained" size="small">SUBMIT</Button>
           </Box>
-        </form> 
-              
+        </form>               
         </Box>
         </Container> 
       </div>

@@ -1,11 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
-import IconButton from '@material-ui/core/IconButton';
+import { Container, Box, Typography, IconButton } from "@material-ui/core";
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import BackspaceOutlinedIcon from '@material-ui/icons/BackspaceOutlined';
-import Typography from '@material-ui/core/Typography';
 
 const JournalDetails = ({journalObj, onDeleteJournal}) => {
 const {date, content, id} = journalObj
@@ -17,7 +14,6 @@ const handleDelete = () => {
   .then(res => res.json())
   .then(() => onDeleteJournal(id))
 }
-
     return (
       <div>
         <Container maxWidth="sm">
@@ -28,7 +24,7 @@ const handleDelete = () => {
         style={{ marginBottom: "1em" }}
         >    
 
-        <Typography align="left" display="initial" variant="h6">
+        <Typography align="left" display="initial" variant="h6" style={{ marginLeft: ".8em" }}>
           {date}
         <IconButton aria-label="edit" size="small">
           <Link to={`/journals/${id}/edit`}><EditOutlinedIcon fontSize="small" /></Link>
