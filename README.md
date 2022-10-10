@@ -4,6 +4,9 @@
 ![appDemo](demo/myBujo.gif)
 
 
+Demo Link: https://www.loom.com/share/78b6644405f3463e8621248538361a3e
+
+
 ## Overview
 Phase 3 project for Flatiron School's software engineering program. This is the front end portion of the application. It was created with React for user interactivity and material ui for dynamic styling.
 
